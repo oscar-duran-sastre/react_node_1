@@ -3,8 +3,8 @@ import { Button } from "reactstrap";
 
 const ButtonWithSpinner = (props) => {
   return (
-    <Button color="secondary" onClick={props.newClick}>
-      Añadir usuario
+    <Button type="button" color="secondary" onClick={props.newClick}>
+      {props.title}
     </Button>
   );
 };

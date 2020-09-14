@@ -1,24 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Table } from "reactstrap";
 import toGetUsers from "../api/toGetUsers";
 import { Spinner } from "reactstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { findStarted, findSuccess, selectIsLoading, selectUsersList } from "../redux/users/usersSlice";
 
 const ToListUsers = () => {
-  const [users, setUsers] = useState([]);
+  const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
+  const users = useSelector(selectUsersList);
+
+  const fetchData = async () => {
+    dispatch(findStarted());
+    const data = await toGetUsers();
+    console.log(data);
+    dispatch(findSuccess(data));
+  };
 
   useEffect(() => {
-    wait();
+    fetchData();
   }, []);
-
-  const wait = async () => {
-    const usersData = await toGetUsers();
-    console.log(usersData);
-    setUsers(usersData);
-  };
 
   return (
     <div>
-      {!users ? (
+      {isLoading ? (
         <div>
           <Spinner type="grow" color="dark" />
           <span> Un momento mientras termina de cargarse la información</span>

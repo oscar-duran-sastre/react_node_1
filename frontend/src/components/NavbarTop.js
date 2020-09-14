@@ -7,10 +7,10 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
+  // UncontrolledDropdown,
+  // DropdownToggle,
+  // DropdownMenu,
+  // DropdownItem,
 } from "reactstrap";
 
 const NavbarTop = () => {
@@ -33,14 +33,17 @@ const NavbarTop = () => {
             </NavItem>
           </Nav>
           <Nav className="ml-auto" navbar>
-            <UncontrolledDropdown nav inNavbar>
+            <NavItem>
+              <NavLink href="/login">Log in</NavLink>
+            </NavItem>
+            {/* <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-                Sign in
+                Log in
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>Log out</DropdownItem>
               </DropdownMenu>
-            </UncontrolledDropdown>
+            </UncontrolledDropdown> */}
           </Nav>
         </Collapse>
       </Navbar>

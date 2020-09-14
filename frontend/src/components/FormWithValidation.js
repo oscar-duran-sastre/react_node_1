@@ -4,7 +4,7 @@ import { Form, FormGroup, FormText, Label, Input } from "reactstrap";
 const FormWithValidation = (props) => {
   return (
     <div>
-      <Form>
+      <Form onSubmit={props.submit}>
         <FormGroup onBlur={props.newBlur}>
           <Label for="exampleEmail">{props.title}</Label>
           <Input invalid={props.isValid} />

@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import FormWithValidation from "./FormWithValidation";
 import ButtonWithSpinner from "./ButtonWithSpinner";
 import toPostUser from "./../api/toPostUser";
-import {
-  checkLength2To40,
-  checkString,
-  checkEmailSchema,
-} from "../validiationFunctions/validationFunctions";
+import { checkLength2To40, checkString, checkEmailSchema } from "../validiationFunctions/validationFunctions";
 
 const ToAddUser = () => {
   const [user, setUser] = useState();
@@ -16,9 +12,7 @@ const ToAddUser = () => {
     e.preventDefault();
     console.log("Blur");
     console.log(e.target.value);
-    e.target.name === "Nombre"
-      ? checkName(e.target.value)
-      : checkEmail(e.target.value);
+    e.target.name === "Nombre" ? checkName(e.target.value) : checkEmail(e.target.value);
   };
 
   const handleClick = (e, propertyName, propertyValue) => {
@@ -47,15 +41,17 @@ const ToAddUser = () => {
         title="Nombre"
         exampleText="Introduzca un nombre"
         failureText="Lo sentimos, ese nombre ya existe"
+        submit={(e) => handleClick(e)}
         newBlur={(e) => handleBlur(e)}
       />
       <FormWithValidation
         title="Email"
         exampleText="Introduzca un email"
         failureText="Lo sentimos, no se reconoce el formato del email"
+        submit={(e) => handleClick(e)}
         newBlur={(e) => handleBlur(e)}
       />
-      <ButtonWithSpinner newClick={(e) => handleClick(e)} />
+      <ButtonWithSpinner title={"Añadir usuario"} newClick={(e) => handleClick(e)} />
     </div>
   );
 };
