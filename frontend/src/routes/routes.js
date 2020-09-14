@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 import ToListUsers from "../components/ToListUsers";
 import Home from "../components/Home";
+import ToAddUser from "../components/ToAddUser";
 
 function Routes() {
   return (
@@ -16,12 +17,12 @@ function Routes() {
             <Route exact path="/users">
               <ToListUsers />
             </Route>
-            {/* <Route exact path="/users/:id">
-            <ToListOneUser />
-          </Route>
-          <Route exact path="/users">
-            <ToCreateNewUser />
-          </Route> */}
+            <Route exact path="/create-user">
+              <ToAddUser />
+            </Route>
+            {/* <Route exact path="/users">
+              <ToCreateNewUser />
+            </Route> */}
           </Switch>
         </Col>
       </Row>

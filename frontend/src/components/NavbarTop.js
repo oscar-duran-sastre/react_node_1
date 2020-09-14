@@ -26,10 +26,10 @@ const NavbarTop = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Users</NavLink>
+              <NavLink href="/users/">Users</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">Create user</NavLink>
+              <NavLink href="/create-user">Create user</NavLink>
             </NavItem>
           </Nav>
           <Nav className="ml-auto" navbar>
