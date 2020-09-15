@@ -11,12 +11,8 @@ const getUsers = async (req, res) => {
 
     let result;
     req.query.condition
-      ? (result = await collection
-          .find({}, OPTIONS)
-          .filter({ condition: req.query.condition })
-          .toArray())
+      ? (result = await collection.find({}, OPTIONS).filter({ condition: req.query.condition }).toArray())
       : (result = await collection.find({}, FIND_OPTIONS).toArray());
-
     res.send(result);
   } catch (error) {
     console.error("ERROR: ", error);

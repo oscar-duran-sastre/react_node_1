@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FormWithValidation from "./FormWithValidation";
 import ButtonWithSpinner from "./ButtonWithSpinner";
 import toPostUser from "./../api/toPostUser";
-import { checkLength2To40, checkString, checkEmailSchema } from "../validiationFunctions/validationFunctions";
+import { checkLength, checkString, checkEmailSchema } from "../validiationFunctions/validationFunctions";
 
 const ToAddUser = () => {
   const [user, setUser] = useState();
@@ -24,13 +24,13 @@ const ToAddUser = () => {
   };
 
   const checkName = (name) => {
-    const isValidName = checkLength2To40(name) && checkString(name);
+    const isValidName = checkLength(name, 2, 40) && checkString(name);
     setValidInput(isValidName);
     setUser("name", isValidName ? name : undefined);
   };
 
   const checkEmail = (email) => {
-    const isValidEmail = checkLength2To40(email) && checkEmailSchema(email);
+    const isValidEmail = checkLength(email, 2, 40) && checkEmailSchema(email);
     setValidInput(isValidEmail);
     setUser("email", isValidEmail ? email : undefined);
   };

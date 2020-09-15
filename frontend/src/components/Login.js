@@ -3,16 +3,10 @@ import FormWithValidation from "./FormWithValidation";
 import ButtonWithSpinner from "./ButtonWithSpinner";
 
 const Login = () => {
-  const handleBlur = (e) => {
-    e.preventDefault();
-    console.log("Blur");
-    console.log(e.target.value);
-  };
+  const handleBlur = (e) => e.preventDefault();
 
-  const handleClick = (e) => {
+  const handleClick = (e, propertyName, propertyValue) => {
     e.preventDefault();
-    console.log("Click");
-    console.log(e.target.value);
   };
 
   return (
@@ -20,18 +14,18 @@ const Login = () => {
       <FormWithValidation
         title="Email"
         exampleText="Introduzca su email"
-        failureText="Lo sentimos, ese nombre ya existe"
+        failureText="Lo sentimos, no se reconoce el formato del email"
         submit={(e) => handleClick(e)}
         newBlur={(e) => handleBlur(e)}
       />
       <FormWithValidation
         title="Password"
         exampleText="Introduzca su password"
-        failureText="Lo sentimos, no se reconoce el formato del email"
+        failureText="Lo sentimos, no se reconoce el formato de la contraseña"
         submit={(e) => handleClick(e)}
         newBlur={(e) => handleBlur(e)}
       />
-      <ButtonWithSpinner title={"Añadir usuario"} newClick={(e) => handleClick(e)} />
+      <ButtonWithSpinner title={"Acceder"} newClick={(e) => handleClick(e)} />
     </div>
   );
 };
