@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import FormWithValidation from "./FormWithValidation";
 import ButtonWithSpinner from "./ButtonWithSpinner";
 import toPostUser from "./../api/toPostUser";
-import { checkLength, checkString, checkEmailSchema } from "../validiationFunctions/validationFunctions";
+import {
+  checkLength,
+  checkString,
+  checkEmailSchema,
+  checkPasswordSchema,
+} from "../validiationFunctions/validationFunctions";
 
 const ToAddUser = () => {
   const [user, setUser] = useState();
@@ -21,6 +26,7 @@ const ToAddUser = () => {
     setUser({ ...user, [propertyName]: propertyValue });
     toPostUser(user);
     console.log(user);
+    console.log(checkPasswordSchema("66dury99"));
   };
 
   const checkName = (name) => {
@@ -34,6 +40,9 @@ const ToAddUser = () => {
     setValidInput(isValidEmail);
     setUser("email", isValidEmail ? email : undefined);
   };
+
+  try {
+  } catch (error) {}
 
   return (
     <div>
